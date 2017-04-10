@@ -1,0 +1,19 @@
+machine:
+    services:
+        - docker
+          
+    dependencies:
+        pre:
+            - tar xzf gcc-4.6.2.tar.gz
+            - cd gcc-4.6.2
+            - ./contrib/download_prerequisites
+            - cd ..
+            - mkdir objdir
+            - $PWD/../gcc-4.6.2/configure --prefix=$HOME/gcc-4.6.2 --enable-languages=c++
+            - make
+            - make install
+
+        compile:
+            override:
+                - gcc *.h *.cpp
+        test:

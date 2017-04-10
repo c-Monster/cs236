@@ -1,0 +1,7 @@
+FROM gcc:4.9
+
+COPY . /usr/src/datalog
+WORKDIR /usr/src/datalog
+
+RUN gcc -o *.h *.cpp
+CMD ["./datalog"]
