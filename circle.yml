@@ -1,7 +1,8 @@
 machine:
     services:
         - docker
-          
+
+          #gcc setup 
     dependencies:
         pre:
             - tar xzf gcc-4.6.2.tar.gz
@@ -15,5 +16,6 @@ machine:
 
         compile:
             override:
-                - gcc *.h *.cpp
+                - cd source
+                -
         test:
