@@ -17,5 +17,9 @@ machine:
         compile:
             override:
                 - cd source
-                -
+                - gcc *.h *.cpp
         test:
+            override:
+                - ./a.out test.txt result.txt
+                - diff out.txt result.txt
+
