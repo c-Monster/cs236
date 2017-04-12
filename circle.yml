@@ -2,24 +2,17 @@ machine:
     services:
         - docker
 
-          #gcc setup 
-    dependencies:
-        pre:
-            - tar xzf gcc-4.6.2.tar.gz
-            - cd gcc-4.6.2
-            - ./contrib/download_prerequisites
-            - cd ..
-            - mkdir objdir
-            - $PWD/../gcc-4.6.2/configure --prefix=$HOME/gcc-4.6.2 --enable-languages=c++
-            - make
-            - make install
+dependencies:
+    pre:
+        - sudo apt-get update
+    override:
+        - sudo apt-get install valgrind
 
-        compile:
-            override:
-                - cd source
-                - gcc *.h *.cpp
-        test:
-            override:
-                - ./a.out test.txt result.txt
-                - diff out.txt result.txt
+compile:
+    pre:
+        - cd source
+
+test:
+    override:
+        - valgrind *.h *.cpp
 
