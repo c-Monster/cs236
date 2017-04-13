@@ -9,11 +9,11 @@ dependencies:
         - sudo apt-get install valgrind
 
 compile:
-    pre:
-        - cd source
+    override:
+        - make
 
 test:
     override:
-        - cd source 
-        - valgrind --leak-check=yes a.out in40.txt
+        - valgrind --leak-check=yes datalog test.txt results.txt
+        - diff results.txt out.txt
 
