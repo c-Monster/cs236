@@ -4,9 +4,9 @@ machine:
 
 dependencies:
     pre:
+        - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
         - sudo apt-get update
-        - sudo apt-get install --only-upgrade g++
-        - sudo apt-get install --only-upgrade gcc
+        - sudo apt-get install gcc-5 g++-5
         - g++ --version
         - gcc --version
         - sudo apt-get install valgrind
