@@ -14,5 +14,6 @@ compile:
 
 test:
     override:
-        - valgrind *.h *.cpp
+        - cd source 
+        - valgrind --leak-check=yes a.out in40.txt
 
