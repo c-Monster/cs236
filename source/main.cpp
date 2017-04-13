@@ -26,6 +26,7 @@ int main(int argc, char* argv[]) {
     Interpreter interpreter(inputDatalogProgram);
     interpreter.interpret();
     interpreter.printResults(argv[2]);
+	cout << "Execution complete";
     return 0;
 }
 
