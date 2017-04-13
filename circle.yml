@@ -4,7 +4,8 @@ machine:
 
 dependencies:
     pre:
-        - sudp apt-get install g++
+        - sudo apt-get install g++
+
         - sudo apt-get install valgrind
 
 compile:
