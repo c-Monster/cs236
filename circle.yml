@@ -5,7 +5,7 @@ machine:
 dependencies:
     pre:
         - sudo apt-get update
-    override:
+        - sudo apt-get install gcc
         - sudo apt-get install valgrind
 
 compile:
@@ -17,3 +17,9 @@ test:
         - valgrind --leak-check=yes datalog test.txt results.txt
         - diff results.txt out.txt
 
+deployment:
+    development:
+        branch: master
+        commands:
+            - docker build -f Dockerfile
+        
