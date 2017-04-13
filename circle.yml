@@ -6,6 +6,7 @@ dependencies:
     pre:
         - sudo apt-get update
         - sudo apt-get install g++
+        - g++ --version
         - sudo apt-get install valgrind
 
 compile:
